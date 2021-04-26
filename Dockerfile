@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y -q apt-utils libnuma-dev unzip libva-dev libmfx-dev intel-media-va-driver-non-free gcc libsdl2-dev cmake libbluray-dev libx264-dev libx265-dev wget && cd /root && wget https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n3.0.zip && unzip n3.0.zip && cd FFmpeg-n3.0 && sed -i 's/llibmfx/lmfx/g' configure && /root/FFmpeg-n3.0/configure --arch=x86_64 --disable-yasm --enable-vaapi --enable-libmfx --enable-libbluray --enable-nonfree --enable-gpl --enable-libx264 --enable-libx265 && make -j8 && make install
+COPY ffmpeg-4.4.tar.xz /root/ffmpeg-4.4.tar.xz
+RUN apt-get update && apt-get install -y -q apt-utils libnuma-dev tar libva-dev libmfx-dev intel-media-va-driver-non-free g++ libsdl2-dev cmake libbluray-dev libx264-dev libx265-dev wget && wget https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.xz
+RUN cd /root && tar xJf ffmpeg-4.4.tar.xz && cd ffmpeg-4.4 && /root/ffmpeg-4.4/configure --arch=x86_64 --disable-yasm --enable-vaapi --enable-libmfx --enable-libbluray --enable-nonfree --enable-gpl --enable-libx264 --enable-libx265 && make -j8 && make install
 ENV LIBVA_DRIVER_NAME iHD
 WORKDIR /mnt
