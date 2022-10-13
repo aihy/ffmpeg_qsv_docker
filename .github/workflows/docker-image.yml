@@ -17,7 +17,8 @@ jobs:
         secret: ${{ secrets.DOCKER_HUB_SECRET }}
       run: |
         pwd
-        ls
-        docker build . --file Dockerfile --tag wzhy1234/ffmpeg-qsv:latest
-        docker login -u wzhy1234 -p $secret
-        docker push wzhy1234/ffmpeg-qsv:latest
+        ls -lh >> 1.txt
+        cat 1.txt
+        # docker build . --file Dockerfile --tag wzhy1234/ffmpeg-qsv:latest
+        # docker login -u wzhy1234 -p $secret
+        # docker push wzhy1234/ffmpeg-qsv:latest
