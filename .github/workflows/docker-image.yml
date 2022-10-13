@@ -12,11 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Build the Docker image
-    - uses: actions/checkout@v3
       env:
         secret: ${{ secrets.DOCKER_HUB_SECRET }}
-    - run: |
+      run: |
         docker build . --file Dockerfile --tag wzhy1234/ffmpeg-qsv:latest
         docker login -u wzhy1234 -p $secret
         docker push wzhy1234/ffmpeg-qsv:latest
