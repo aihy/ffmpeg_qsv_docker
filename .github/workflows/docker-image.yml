@@ -13,7 +13,6 @@ jobs:
 
     steps:
     - name: Build the Docker image
-    - shell: bash
       env:
         secret: ${{ secrets.DOCKER_HUB_SECRET }}
       run: |
