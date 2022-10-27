@@ -1,4 +1,4 @@
-FROM ubuntu:22.04.1
+FROM ubuntu:jammy
 ARG DEBIAN_FRONTEND=noninteractive
 ARG FFMPEG_VERSION=5.1.2
 RUN apt-get update && apt-get install -y -q libgnutls28-dev libmp3lame-dev libopus-dev libtheora-dev libvorbis-dev libwebp-dev libzvbi-dev i965-va-driver vainfo apt-utils libnuma-dev libass-dev xz-utils libva-dev libmfx-dev intel-media-va-driver-non-free gcc libsdl2-dev cmake libbluray-dev libx264-dev libx265-dev wget vim locales libfdk-aac-dev less pkg-config yasm
