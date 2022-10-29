@@ -18,6 +18,6 @@ jobs:
       env:
         secret: ${{ secrets.DOCKER_HUB_SECRET }}
       run: |
-        docker build . --file Dockerfile --tag wzhy1234/ffmpeg-vaapi:latest
+        docker build . --file Dockerfile --tag wzhy1234/ffmpeg-qsv:latest
         docker login -u wzhy1234 -p $secret
-        docker push wzhy1234/ffmpeg-vaapi:latest
+        docker push wzhy1234/ffmpeg-qsv:latest
