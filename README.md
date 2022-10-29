@@ -1,4 +1,4 @@
-# ffmpeg_vaapi_docker
+# ffmpeg_qsv_docker
 
 > Tested on Linux
 
